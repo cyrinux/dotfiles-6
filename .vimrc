@@ -88,6 +88,7 @@ let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 set clipboard=unnamedplus
 nmap <leader>ne :NERDTree<cr>
 set backupcopy=yes
+set updatetime=500 " refresh time for swp file and LaTeX live preview
 
 " [ YouCompleteMe Plugin ]
 " hide suggestion tooltip
