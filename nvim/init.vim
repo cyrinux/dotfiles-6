@@ -4,6 +4,9 @@ Plug 'morhetz/gruvbox'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'donRaphaco/neotex', { 'for': 'tex' }
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'tomlion/vim-solidity'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
 call plug#end()
 
 let mapleader=","
@@ -29,21 +32,48 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set expandtab
+set autoindent
 
 " Utilities
+set splitbelow
+set splitright
 set clipboard=unnamedplus
 
 " Filetypes
+" Hide row numbers in terminal
+au TermOpen * setlocal nonumber norelativenumber
+au TermOpen * startinsert
+
+" Javascript
+au FileType javascript:
+    \ setlocal tabstop=2
+    \ setlocal softtabstop=2
+    \ setlocal shiftwidth=2
+
 " Python
-au BufNewFile,BufRead *.py:
-    \ set tabstop=4
-    \ set softtabstop=4
-    \ set shiftwidth=4
-    \ set textwidth=79
-    \ set expandtab
-    \ set autoindent
-    \ set fileformat=unix
+au BufNewFile,BufRead python:
+    \ setlocal tabstop=4
+    \ setlocal softtabstop=4
+    \ setlocal shiftwidth=4
 
 au BufNewfile,BufRead *.tex:
     \ set textwidth=79
 
+" Workspace Setup
+" ----------------
+function! DefaultWorkspace()
+    let width = winwidth(0)
+    Explore
+    vsp
+    sp
+    term
+    resize 10
+    wincmd k
+    vsplit
+    wincmd h
+    vertical resize 82
+    wincmd h
+    vertical resize 25
+    wincmd l
+endfunction
+command! -register DefaultWorkspace call DefaultWorkspace()
