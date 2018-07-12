@@ -70,11 +70,8 @@ function! DefaultWorkspace()
     term
     resize 10
     wincmd k
-    vsplit
     wincmd h
-    vertical resize 82
-    wincmd h
-    vertical resize 25
+    vertical resize 20
     wincmd l
 endfunction
 command! -register DefaultWorkspace call DefaultWorkspace()
