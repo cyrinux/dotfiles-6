@@ -1,0 +1,15 @@
+# Scroll hor_wheel right (up)
+"xdotool key ctrl+Tab"
+   b:6
+
+# Scroll hor_wheel left (down)
+"xdotool key ctrl+Shift+Tab"
+   b:7
+
+# Side-top button => increase volume
+"xte 'key XF86AudioRaiseVolume'"
+   b:9
+
+# Side-bottom button => lower volume
+"xte 'key XF86AudioLowerVolume'"
+   b:8
