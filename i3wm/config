@@ -8,7 +8,8 @@ set $monitor2 HDMI1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Noto Sans 10
+font pango:Roboto 12
+for_window [class=".*"] title_format "  %title"
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -90,8 +91,8 @@ bindsym $mod+a focus parent
 # Define names for default workspaces
 set $ws1 "1:"
 set $ws2 "2:"
-set $ws3 "3"
-set $ws4 "4"
+set $ws3 "3:"
+set $ws4 "4:"
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
@@ -126,12 +127,16 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 # default workspaces for monitors
 workspace $ws1 output $monitor2
 workspace $ws2 output $monitor2
+workspace $ws3 output $monitor2
+workspace $ws4 output $monitor2
 workspace $ws9 output $monitor2
 
 # default workspaces apps
 assign [class="Firefox"] $ws1
 assign [class="Gnome-terminal"] $ws2
+assign [class="Nautilus"] $ws4
 assign [class="TelegramDesktop"] $ws9
+for_window [title="^nvim$"] move to workspace $ws3
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -214,7 +219,9 @@ mode "$mode_gaps_inner" {
 }
 
 # Custom bindings
-bindsym $mod+shift+x exec /home/antonio/dotfiles/scripts/lock.sh /home/antonio/Immagini/lock.png
+bindsym $mod+shift+x exec /home/antonio/dotfiles/scripts/lock.sh
+
+bindsym $mod+Mod1+e exec gnome-terminal --hide-menubar -t nvim -- nvim -c DefaultWorkspace
 
 # media player controls
 bindsym XF86AudioPlay exec mpc toggle
