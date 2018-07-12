@@ -7,6 +7,7 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'tomlion/vim-solidity'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
+Plug 'dbeniamine/cheat.sh-vim'
 call plug#end()
 
 let mapleader=","
