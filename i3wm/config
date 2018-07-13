@@ -229,6 +229,10 @@ bindsym XF86AudioPause exec mpc pause
 bindsym XF86AudioNext exec mpc next
 bindsym XF86AudioPrev exec mpc prev
 
+# brightness keys
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10
+
 # Screenshot
 bindsym $mod+shift+s exec maim -s | xclip -selection clipboard -t image/png
 
@@ -237,7 +241,7 @@ bindsym $mod+shift+s exec maim -s | xclip -selection clipboard -t image/png
 exec xautolock -time 15 -locker '/home/antonio/dotfiles/scripts/lock.sh /home/antonio/Immagini/lock.png' &
 
 # Background wallpaper
-exec_always feh --bg-scale /home/antonio/Immagini/minimal_wallpaper.png
+exec_always feh --bg-scale /home/antonio/Immagini/wallpaper.jpg
 
 # Connman tray icon/GUI
 exec connman-gtk
