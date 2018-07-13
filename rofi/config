@@ -1,12 +1,12 @@
 ! State:           'bg',          'fg',    'bgalt',       'hlbg',  'hlfg'
-rofi.color-window: argb:c82f343f, #7c8389, #1d1f21
+rofi.color-window: argb:e62f343f, #7c8389, #1d1f21
 rofi.color-normal: argb:031d1f21, #c4cbd4, argb:00404552, argb:00000000, #9575cd
 rofi.color-urgent: argb:2c1d1f21, #cc6666, argb:e54b5160, argb:00000000, #9575cd
 rofi.color-active: argb:2c1d1f21, #65acff, argb:e44b5160, argb:00000000, #9575cd
 rofi.width: 100
 rofi.lines: 3
 rofi.columns: 1
-rofi.font: SFNS Display 18
+rofi.font: Roboto 30
 rofi.bw: 0
 rofi.padding: 800
 rofi.eh: 2
