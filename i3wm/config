@@ -2,9 +2,9 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod4
+set $mod Mod1
 set $monitor eDP1
-set $monitor2 HDMI1
+set $monitor2 DP1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -39,10 +39,10 @@ bindsym $mod+d exec rofi -show run
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+ograve focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -51,10 +51,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+ograve move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -63,7 +63,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+b split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -221,7 +221,7 @@ mode "$mode_gaps_inner" {
 # Custom bindings
 bindsym $mod+shift+x exec /home/antonio/dotfiles/scripts/lock.sh
 
-bindsym $mod+Mod1+e exec gnome-terminal --hide-menubar -t nvim -- nvim -c DefaultWorkspace
+bindsym $mod+Mod4+e exec gnome-terminal --hide-menubar -t nvim -- nvim -c DefaultWorkspace
 
 # media player controls
 bindsym XF86AudioPlay exec mpc toggle
@@ -248,6 +248,11 @@ exec connman-gtk
 
 # Volume icon and fn keys bindings
 exec volumeicon
+
+# English kb layout with Alt GR dead keys
+# bonus: caps lock is ESC when pressed, and CTRL when hold
+exec setxkbmap -variant altgr-intl -option 'caps:ctrl_modifier'
+exec xcape -e 'Caps_Lock=Escape'
 
 # Custom keybindings (for MX Master mouse)
 exec xbindkeys
