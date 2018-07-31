@@ -1,3 +1,13 @@
+function! BuildComposer(info)
+  if a:info.status != 'unchanged' || a:info.force
+    if has('nvim')
+      !cargo build --release
+    else
+      !cargo build --release --no-default-features --features json-rpc
+    endif
+  endif
+endfunction
+
 " Plugins
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
   silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
@@ -7,12 +17,15 @@ endif
 call plug#begin()
 Plug 'morhetz/gruvbox'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'w0rp/ale'
 Plug 'donRaphaco/neotex', { 'for': 'tex' }
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'tomlion/vim-solidity'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'dbeniamine/cheat.sh-vim'
+Plug 'lambdalisue/suda.vim' " sudo edit/open files
+Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
 call plug#end()
 
 let mapleader=","
@@ -25,9 +38,10 @@ let g:neotex_enabled=2
 set number
 set cursorline
 set termguicolors
-let g:gruvbox_italic=1
-set background=dark
 colorscheme gruvbox
+set background=dark
+let g:gruvbox_italic=1
+hi Normal guibg=NONE ctermbg=NONE
 set colorcolumn=80
 nnoremap <leader><space> :nohlsearch<CR>
 set mouse=a
@@ -44,6 +58,7 @@ set autoindent
 set splitbelow
 set splitright
 set clipboard=unnamedplus
+let g:tex_flavor = "latex" " disambiguate .tex files to latex
 
 " Filetypes
 " Hide row numbers in terminal
@@ -51,19 +66,22 @@ au TermOpen * setlocal nonumber norelativenumber
 au TermOpen * startinsert
 
 " Javascript
-au FileType javascript:
-    \ setlocal tabstop=2
-    \ setlocal softtabstop=2
-    \ setlocal shiftwidth=2
+au FileType javascript setlocal
+    \ tabstop=2
+    \ softtabstop=2
+    \ shiftwidth=2
 
 " Python
-au BufNewFile,BufRead python:
-    \ setlocal tabstop=4
-    \ setlocal softtabstop=4
-    \ setlocal shiftwidth=4
+au FileType python setlocal
+    \ tabstop=4
+    \ softtabstop=4
+    \ shiftwidth=4
 
-au BufNewfile,BufRead *.tex:
-    \ set textwidth=79
+au FileType tex setlocal
+    \ textwidth=79
+
+au FileType markdown setlocal
+    \ textwidth=79
 
 " Workspace Setup
 " ----------------
@@ -80,3 +98,9 @@ function! DefaultWorkspace()
     wincmd l
 endfunction
 command! -register DefaultWorkspace call DefaultWorkspace()
+
+" STOP using arrow keys!
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
