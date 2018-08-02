@@ -4,6 +4,7 @@
 #clickable_url = true
 #dynamic_title = true
 font = Gohu GohuFont 14px
+#font = wucom siji 14px
 #fullscreen = true
 #geometry = 640x480
 #icon_name = terminal
@@ -49,10 +50,10 @@ scrollback_lines = 10000
 #background = #3f3f3f
 
 # 20% background transparency (requires a compositor)
-background = rgba(40, 40, 40, 0.95)
+background = rgba(40, 40, 40, 0.85)
 
 # If unset, will reverse foreground and background
-highlight = #2f2f2f
+#highlight = #ada400
 
 # Colors from color0 to color254 can be set
 color0 = #3f3f3f
