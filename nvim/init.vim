@@ -31,6 +31,7 @@ call plug#end()
 let mapleader=","
 let g:deoplete#enable_at_startup=1
 let g:neotex_enabled=2
+let g:neotex_subfile=1
 " let g:neotex_latexdiff=1
 " let g:neotex_latexdiff_options="-t CTRADITIONAL"
 
@@ -55,6 +56,7 @@ set expandtab
 set autoindent
 
 " Utilities
+set title " append - NVIM to the window title
 set splitbelow
 set splitright
 set clipboard=unnamedplus
