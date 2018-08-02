@@ -138,7 +138,9 @@ assign [class="Thunderbird"] $ws7
 assign [class="Spotify"] $ws8
 assign [class="TelegramDesktop"] $ws9
 for_window [title="- NVIM$"] move to workspace $ws3
-# for_window [urgent=latest] focus # focus when window gets urgent
+
+# focus when window gets urgent
+for_window [urgent=latest] focus
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
