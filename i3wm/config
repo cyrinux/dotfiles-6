@@ -2,7 +2,7 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod1
+set $mod Mod4
 set $monitor eDP1
 set $monitor2 DP1
 
@@ -70,11 +70,6 @@ bindsym $mod+v split v
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
-# change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
-
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 
@@ -137,7 +132,7 @@ assign [class="Nautilus"] $ws4
 assign [class="Thunderbird"] $ws7
 assign [class="Spotify"] $ws8
 assign [class="TelegramDesktop"] $ws9
-for_window [title="- NVIM$"] move to workspace $ws3
+for_window [title="- NVIM$"] move to workspace $ws3, workspace --no-auto-back-and-forth $ws3
 
 # focus when window gets urgent
 focus_on_window_activation focus
@@ -209,8 +204,8 @@ smart_gaps on
 smart_borders on
 
 # Custom bindings
-bindsym $mod+shift+x exec /home/antonio/dotfiles/scripts/lock.sh
-
+bindsym $mod+shift+x exec ~/dotfiles/scripts/lock.sh
+bindsym $mod+shift+p exec ~/.screenlayout/.screenlayout.sh
 # audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
@@ -230,11 +225,14 @@ bindsym $mod+shift+s exec maim -s | xclip -selection clipboard -t image/png
 
 # Autostart apps
 # Automatic lockscreen after 15 minutes of inactivity
-# exec xautolock -time 15 -locker '/home/antonio/dotfiles/scripts/lock.sh &
+# exec xautolock -time 15 -locker '~/dotfiles/scripts/lock.sh &
 
 # Background wallpaper
-# exec_always feh --bg-scale /home/antonio/Immagini/wallpaper.jpg
+# exec_always feh --bg-scale ~/Immagini/wallpaper.jpg
 exec python ~/git/dyn-wallpaper/set_wallpaper.py rome ~/Immagini/Mojave
+
+# Battery alerts
+exec i3-battery-popup -L 20 -n
 
 # Connman tray icon/GUI
 # exec connman-gtk
