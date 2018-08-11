@@ -57,6 +57,7 @@ set autoindent
 
 " Utilities
 set title " append - NVIM to the window title
+set spelllang=en,it
 set splitbelow
 set splitright
 set clipboard=unnamedplus
@@ -80,9 +81,11 @@ au FileType python setlocal
     \ shiftwidth=4
 
 au FileType tex setlocal
+    \ spell
     \ textwidth=79
 
 au FileType markdown setlocal
+    \ spell
     \ textwidth=79
 
 " Workspace Setup
