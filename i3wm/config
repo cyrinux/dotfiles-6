@@ -130,7 +130,7 @@ assign [class="Firefox"] $ws1
 assign [class="Gnome-terminal"] $ws2
 assign [class="Nautilus"] $ws4
 assign [class="Thunderbird"] $ws7
-assign [class="Spotify"] $ws8
+for_window [class="Spotify"] move to workspace $ws8
 assign [class="TelegramDesktop"] $ws9
 for_window [title="- NVIM$"] move to workspace $ws3, workspace --no-auto-back-and-forth $ws3
 
@@ -232,7 +232,7 @@ bindsym $mod+shift+s exec maim -s | xclip -selection clipboard -t image/png
 exec python ~/git/dyn-wallpaper/set_wallpaper.py rome ~/Immagini/Mojave
 
 # Battery alerts
-exec i3-battery-popup -L 20 -n
+exec i3-battery-popup -L 20
 
 # Connman tray icon/GUI
 # exec connman-gtk
