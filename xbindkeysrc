@@ -1,15 +1,6 @@
-# Scroll hor_wheel right (up)
+# Bindings for logitech M590 (two side buttons)
 "xdotool key ctrl+Tab"
-   b:6
-
-# Scroll hor_wheel left (down)
-"xdotool key ctrl+Shift+Tab"
-   b:7
-
-# Side-top button => increase volume
-"xte 'key XF86AudioRaiseVolume'"
    b:9
 
-# Side-bottom button => lower volume
-"xte 'key XF86AudioLowerVolume'"
+"xdotool key ctrl+Shift+Tab"
    b:8

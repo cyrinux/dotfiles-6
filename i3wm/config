@@ -248,9 +248,8 @@ exec xcape -e 'Caps_Lock=Escape'
 # High speed keys repeat with long press, easier for navigation in vim
 exec_always xset r rate 250 45
 
-# Custom keybindings (for MX Master mouse)
-# currently interfering with the touchpad
-# exec xbindkeys
+# Custom keybindings for mouse
+exec xbindkeys
 
 # Compositor (window effects and opacity)
 exec_always compton -f
