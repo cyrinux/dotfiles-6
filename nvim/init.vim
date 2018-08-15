@@ -62,6 +62,7 @@ set splitbelow
 set splitright
 set clipboard=unnamedplus
 let g:tex_flavor = "latex" " disambiguate .tex files to latex
+let g:ale_linters_ignore = { 'tex': ['lacheck'] }
 
 " Filetypes
 " Hide row numbers in terminal
@@ -83,6 +84,9 @@ au FileType python setlocal
 au FileType tex setlocal
     \ spell
     \ textwidth=79
+    \ tabstop=2
+    \ softtabstop=2
+    \ shiftwidth=2
 
 au FileType markdown setlocal
     \ spell
