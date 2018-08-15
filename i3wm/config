@@ -132,7 +132,6 @@ assign [class="Nautilus"] $ws4
 assign [class="Thunderbird"] $ws7
 for_window [class="Spotify"] move to workspace $ws8
 assign [class="TelegramDesktop"] $ws9
-for_window [title="- NVIM$"] move to workspace $ws3, workspace --no-auto-back-and-forth $ws3
 
 # focus when window gets urgent
 focus_on_window_activation focus
