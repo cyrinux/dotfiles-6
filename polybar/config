@@ -61,7 +61,7 @@ module-margin = 1.5
 
 modules-left = i3 title
 modules-center = player-mpris-tail time date
-modules-right = cpu alsa battery wlan
+modules-right = adsearning cpu alsa battery wlan
 
 tray-position = right
 tray-detached = false
@@ -187,5 +187,10 @@ format = "<label>     "
 tail = true
 click-left = playerctl play-pause
 click-right = playerctl next
+
+[module/adsearning]
+type = custom/script
+exec = ~/earnings.py
+interval = 3600
 
 ; vim:ft=dosini
