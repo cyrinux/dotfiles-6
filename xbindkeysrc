@@ -1,6 +1,13 @@
 # Bindings for logitech M590 (two side buttons)
-"xdotool key ctrl+Tab"
-   b:9
 
 "xdotool key ctrl+Shift+Tab"
+   b:6
+
+"xdotool key ctrl+Tab"
+   b:7
+
+"i3-msg workspace next"
+   b:9
+
+"i3-msg workspace previous"
    b:8
