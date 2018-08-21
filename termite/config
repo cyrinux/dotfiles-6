@@ -3,8 +3,8 @@
 #audible_bell = false
 #clickable_url = true
 #dynamic_title = true
-#font = Gohu GohuFont 14px
-font = xos4 Terminus 14px
+# font = Gohu GohuFont 14px
+font = UW Ttyp0 15px
 #fullscreen = true
 #geometry = 640x480
 #icon_name = terminal
