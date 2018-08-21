@@ -233,6 +233,9 @@ exec python ~/git/dyn-wallpaper/set_wallpaper.py rome ~/Immagini/Mojave
 # Battery alerts
 exec i3-battery-popup -L 20
 
+# Taskwarrior alerts
+exec ~/dotfiles/scripts/task_notify.sh
+
 # Connman tray icon/GUI
 # exec connman-gtk
 
