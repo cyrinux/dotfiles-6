@@ -26,6 +26,7 @@ Plug 'mxw/vim-jsx'
 Plug 'dbeniamine/cheat.sh-vim'
 Plug 'lambdalisue/suda.vim' " sudo edit/open files
 Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
+Plug 'tpope/vim-surround'
 call plug#end()
 
 let mapleader=","
@@ -64,6 +65,9 @@ set clipboard=unnamedplus
 let g:tex_flavor = "latex" " disambiguate .tex files to latex
 let g:ale_linters_ignore = { 'tex': ['lacheck'] }
 
+" Surround plugin custom commands
+let g:surround_{char2nr('c')} = "\\\1command\1{\r}" " ysiwctextit<CR>
+
 " Filetypes
 " Hide row numbers in terminal
 au TermOpen * setlocal nonumber norelativenumber
@@ -87,6 +91,11 @@ au FileType tex setlocal
     \ tabstop=2
     \ softtabstop=2
     \ shiftwidth=2
+au FileType tex imap <buffer> <A-b> \textbf{}<Left>
+au FileType tex imap <buffer> <A-i> \textit{}<Left>
+" Alt-b and Alt-i to surround selected text with bold/italic
+au FileType tex vmap <buffer> <A-b> Sctextbf<CR>
+au FileType tex vmap <buffer> <A-i> Sctextit<CR>
 
 au FileType markdown setlocal
     \ spell
